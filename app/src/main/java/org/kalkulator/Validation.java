@@ -26,8 +26,8 @@ public class Validation {
         }
     }
 
-    public static void validasiPembagi(double num2, char operator) {
-        if (operator == '/' && num2 == 0) {
+    public static void validasiPembagi(int num2, char operator) {
+        if (operator == 4 && num2 == 0) {
             throw new IllegalArgumentException("Error: Pembagi tidak boleh nol!");
         }
     }
