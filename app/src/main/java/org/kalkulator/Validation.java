@@ -6,6 +6,7 @@ public class Validation {
         try {
             return Double.parseDouble(input);
         } catch (NumberFormatException e) {
+            //numberapa maksudnya angka keberapa yang diinputkan yg bukan angka
             throw new IllegalArgumentException("Error: " + numBerapa + " bukan angka.");
         }
     }
