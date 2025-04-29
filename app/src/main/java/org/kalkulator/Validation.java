@@ -24,7 +24,7 @@ public class Validation {
         if (operator < 1 || operator > 4) {
             throw new IllegalArgumentException("Error: Operator yang dipilih tidak valid");
         }
-    }
+    } 
 
     public static void validasiPembagi(int num2, char operator) {
         if (operator == 4 && num2 == 0) {
