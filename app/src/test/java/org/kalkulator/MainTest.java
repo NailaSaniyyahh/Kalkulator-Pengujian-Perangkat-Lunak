@@ -4,7 +4,7 @@
 package org.kalkulator;
 
 import org.junit.jupiter.api.Test;
-import org.kalkulator.App;
+import org.kalkulator.ma;
 
 import static org.junit.jupiter.api.Assertions.*;
 

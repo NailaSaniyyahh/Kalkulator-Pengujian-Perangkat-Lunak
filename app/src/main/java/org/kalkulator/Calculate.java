@@ -3,50 +3,34 @@ package org.kalkulator;
 public class Calculate {
 
     // Method untuk memilih operator berdasarkan input pilihan
-    public static char pilihOperator(String pilihan) {
+    public static double calculate(char pilihan, double num1, double num2) {
         switch (pilihan) {
-            case "1":
-                return '+';
-            case "2":
-                return '-';
-            case "3":
-                return '*';
-            case "4":
-                return '/';
-            default:
-                throw new IllegalArgumentException("Error:");
-        }
-    }
-
-    // Method untuk melakukan perhitungan berdasarkan angka dan operator
-    public static double calculate(double num1, double num2, char operator) {
-        switch (operator) {
-            case '+':
+            case '1':
                 return tambah(num1, num2);
-            case '-':
+            case '2':
                 return kurang(num1, num2);
-            case '*':
-                return kali(num1, num2);
-            case '/':
+            case '3':
+                 return kali(num1, num2);
+            case '4':
                 return bagi(num1, num2);
             default:
-                throw new IllegalArgumentException("Error: Operator tidak dikenal.");
+            return Double.NaN; 
         }
     }
 
-    private static double tambah(double a, double b) {
-        return a + b;
+    private static double tambah(double num1, double num2) {
+        return num1 + num2;
     }
 
-    private static double kurang(double a, double b) {
-        return a - b;
+    private static double kurang(double num1, double num2) {
+        return num1 - num2;
     }
 
-    private static double kali(double a, double b) {
-        return a * b;
+    private static double kali(double num1, double num2) {
+        return num1 * num2;
     }
 
-    private static double bagi(double a, double b) {
-        return a / b;
+    private static double bagi(double num1, double num2) {
+        return num1 / num2;
     }
 }
