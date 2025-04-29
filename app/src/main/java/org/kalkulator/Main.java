@@ -32,12 +32,12 @@ public class Main {
                 Validation.validasiOperator(String.valueOf(operator));
 
                 // Input bilangan pertama
-                System.out.print("Masukkan bilangan pertama: ");
+                System.out.print("Masukkan bilangan pertama dalam rentang -32768 s.d. 32767: ");
                 String input1 = scanner.nextLine();
                 double num1 = Validation.validasiInputAngka(input1, "Bilangan pertama");
 
                 // Input bilangan kedua
-                System.out.print("Masukkan bilangan kedua: ");
+                System.out.print("Masukkan bilangan kedua dalam rentang -32768 s.d. 32767: ");
                 String input2 = scanner.nextLine();
                 double num2 = Validation.validasiInputAngka(input2, "Bilangan kedua");
 
@@ -45,7 +45,9 @@ public class Main {
                 Validation.validasiInput((int) num1, (int) num2, operator); 
 
                 // Validasi pembagi untuk pembagian
-                Validation.validasiPembagi((int) num2, operator);
+                if (operator == '/') {
+                    Validation.validasiPembagi((int) num2, operator);
+                }
 
                 // Hitung hasil
                 double hasil = Calculate.calculate(num1, num2, operator);
