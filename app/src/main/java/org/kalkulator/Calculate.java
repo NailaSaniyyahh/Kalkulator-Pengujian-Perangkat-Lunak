@@ -14,7 +14,7 @@ public class Calculate {
             case "4":
                 return '/';
             default:
-                throw new IllegalArgumentException("Error: Pilihan tidak valid.");
+                throw new IllegalArgumentException("Error:");
         }
     }
 

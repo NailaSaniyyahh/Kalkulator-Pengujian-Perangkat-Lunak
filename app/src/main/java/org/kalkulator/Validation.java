@@ -10,23 +10,24 @@ public class Validation {
         }
     }
 
-    public static void validasiInput(int num1, int num2, char operator){
+    public static void validasiInput(double num1, double num2, char operator){
         if (num1 < -32768 || num1 > 32767){
-            throw new IllegalArgumentException("Error: num1 tidak berada pada rentang.");
+            throw new IllegalArgumentException("Error: Bilangan Pertama tidak berada pada rentang.");
         }
         if (num2 < -32768 || num2 > 32767){
-            throw new IllegalArgumentException("Error: num2 tidak berada pada rentang.");
+            throw new IllegalArgumentException("Error: Bilangan Kedua tidak berada pada rentang.");
         }
     }
 
     public static void validasiOperator(String operator){
-        if (!operator.equals("+") && !operator.equals("-") && !operator.equals("*") && !operator.equals("/")) {
+        if (!operator.equals("1") && !operator.equals("2") && 
+            !operator.equals("3") && !operator.equals("4")) {
             throw new IllegalArgumentException( "Error: operator tidak valid");
         }
     }
 
     public static void validasiPembagi(int num2, char operator) {
-        if (operator == '/' && num2 == 0) {
+        if (operator == '4' && num2 == 0) {
             throw new IllegalArgumentException("Error: pembagi tidak boleh nol");
         }
     }
