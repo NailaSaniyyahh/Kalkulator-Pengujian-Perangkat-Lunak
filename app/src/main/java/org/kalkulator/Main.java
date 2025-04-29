@@ -25,11 +25,8 @@ public class Main {
                 System.out.print("Masukkan pilihan Anda (1/2/3/4): ");
                 String pilihan = scanner.nextLine();
 
-                // Pilih operator berdasarkan pilihan user
-                char operator = Calculate.pilihOperator(pilihan);
-
                 // Validasi operator
-                Validation.validasiOperator(String.valueOf(operator));
+                Validation.validasiOperator(pilihan.charAt(0));
 
                 // Input bilangan pertama
                 System.out.print("Masukkan bilangan pertama: ");
@@ -42,13 +39,13 @@ public class Main {
                 double num2 = Validation.validasiInputAngka(input2, "Bilangan kedua");
 
                 // Validasi range
-                Validation.validasiInput((int) num1, (int) num2, operator); 
+                Validation.validasiInput((int) num1, (int) num2, pilihan.charAt(0));
 
                 // Validasi pembagi untuk pembagian
-                Validation.validasiPembagi((int) num2, operator);
+                Validation.validasiPembagi((int) num2, pilihan.charAt(0));
 
                 // Hitung hasil
-                double hasil = Calculate.calculate(num1, num2, operator);
+                double hasil = Calculate.calculate(pilihan.charAt(0), num1, num2);
                 System.out.println("======================================");
                 System.out.println("Hasil: " + hasil);
                 System.out.println("======================================");
