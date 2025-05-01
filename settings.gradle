@@ -11,4 +11,4 @@ plugins {
 }
 
 rootProject.name = 'Kalkulator'
-include('app')
+include ':app'
