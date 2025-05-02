@@ -25,9 +25,9 @@ public class Main {
 
                 // Ambil angka pertama dan kedua
                 double num1 = getValidNumber(scanner, "Masukkan bilangan pertama: ");
-                Validation.validasiInput((int) num1, 0, pilihan.charAt(0));
+                Validation.validasiInput(num1, 0, pilihan.charAt(0));
                 double num2 = getValidNumber(scanner, "Masukkan bilangan kedua: ");
-                Validation.validasiInput(0, (int) num2, pilihan.charAt(0));
+                Validation.validasiInput(num1, num2, pilihan.charAt(0));
 
                 // Validasi pembagian
                 Validation.validasiPembagi(num2, pilihan.charAt(0));
@@ -44,9 +44,11 @@ public class Main {
 
             // Tanya ke user mau lanjut atau tidak
             lanjut = askForContinue(scanner);
-            System.out.println("======================================");
-            System.out.println("Terima kasih telah menggunakan kalkulator!");
-            System.out.println("======================================");
+            if (!lanjut) {
+                System.out.println("======================================");
+                System.out.println("Terima kasih telah menggunakan kalkulator!");
+                System.out.println("======================================");
+            }
         }
 
         scanner.close();
