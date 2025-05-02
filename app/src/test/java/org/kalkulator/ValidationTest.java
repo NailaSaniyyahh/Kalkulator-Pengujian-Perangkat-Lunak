@@ -1,36 +1,64 @@
 package org.kalkulator;
 
-import org.junit.Before;
-import org.junit.After;
-import org.junit.BeforeClass;
-import org.junit.Test;
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import org.junit.jupiter.api.Test;
 
 public class ValidationTest {
-    private Validation sut;
 
-    @Before
-    public void setUp() throws Exception{
-        sut = new Validation();
-    }
-
-    @Test
-    public void testValidasiInputAngka_ValidInput_ReturnsDouble() {
-        String input = "123.45";
-        String numBerapa = "Angka Pertama";
-        double result = Validation.validasiInputAngka(input, numBerapa);
-        assertEquals(123.45, result, 0.001);
-    }
-
-    @Test
-    public void testValidasiInputAngka_InvalidInput_ThrowsException() {
-        String input = "abc";
-        String numBerapa = "Angka Pertama";
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            Validation.validasiInputAngka(input, numBerapa);
+	//TC01
+	@Test
+    public void testvalidasiInputAngka1() {
+        String input = "yyy";  
+        IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
+            Validation.validasiInputAngka(input);
         });
-        assertEquals("Error: Angka Pertama bukan angka.", exception.getMessage());
+        assertEquals("Error: Input bukan angka.", thrown.getMessage());
+    }
+
+	//TC02
+	@Test
+    public void testvalidasiInputAngka2() {
+        String input1 = "2.7"; 
+		String input2 = "yyy";  
+        // IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
+        //     Validation.validasiInputAngka(input);
+        // });
+        // assertEquals("Error: Input bukan angka.", thrown.getMessage());
+		double num1 = Validation.validasiInputAngka(input1);
+        assertEquals(2.7, num1, "num1 harus valid dan dikembalikan sebagai 2.7");
+
+        IllegalArgumentException thrown2 = assertThrows(IllegalArgumentException.class, () -> {
+            Validation.validasiInputAngka(input2);  // Validasi untuk num2
+        });
+        assertEquals("Error: Input bukan angka.", thrown2.getMessage());
+    }
+	
+	//TC03
+	@Test
+    void testvalidasiInput1() {
+        double num1 = 23;     
+        double num2 = 908765;    
+
+        // Memastikan IllegalArgumentException dilemparkan untuk num2
+        IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
+            Validation.validasiInput(num1, num2);
+        });
+        assertEquals("Error: Bilangan Kedua tidak berada pada rentang.", thrown.getMessage());
+    }
+
+	//TC04
+	@Test
+    void testvalidasiInput2() {
+        double num1 = 908765;     
+        // double num2 = null;    
+
+        // Memastikan IllegalArgumentException dilemparkan untuk num2
+        IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
+            // Validation.validasiInput(num1, num2);
+        });
+        assertEquals("Error: Bilangan Kedua tidak berada pada rentang.", thrown.getMessage());
     }
 }
+

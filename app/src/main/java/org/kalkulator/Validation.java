@@ -2,15 +2,15 @@ package org.kalkulator;
 
 public class Validation {
 
-    public static double validasiInputAngka(String input, String numBerapa) {
+    public static double validasiInputAngka(String input) {
         try {
             return Double.parseDouble(input);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("Error: " + numBerapa + " bukan angka.");
+            throw new IllegalArgumentException("Error: Input bukan angka.");
         }
     }
 
-    public static void validasiInput(int num1, int num2, char pilihan){
+    public static void validasiInput(double num1, double num2){
         if (num1 < -32768 || num1 > 32767){
             throw new IllegalArgumentException("Error: Bilangan Pertama tidak berada pada rentang.");
         }
