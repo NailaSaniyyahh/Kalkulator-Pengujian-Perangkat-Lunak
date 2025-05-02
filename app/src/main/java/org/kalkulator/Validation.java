@@ -25,7 +25,7 @@ public class Validation {
         }
     }
 
-    public static void validasiPembagi(int num2, char pilihan) {
+    public static void validasiPembagi(double num2, char pilihan) {
         if (pilihan == '4' && num2 == 0) {
             throw new IllegalArgumentException("Error: pembagi tidak boleh nol");
         }
