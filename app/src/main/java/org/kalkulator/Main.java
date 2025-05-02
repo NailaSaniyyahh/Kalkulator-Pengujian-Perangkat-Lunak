@@ -27,10 +27,10 @@ public class Main {
                 double num1 = getValidNumber(scanner, "Masukkan bilangan pertama: ");
                 Validation.validasiInput((int) num1, 0, pilihan.charAt(0));
                 double num2 = getValidNumber(scanner, "Masukkan bilangan kedua: ");
-                Validation.validasiInput((int) num1, (int) num2, pilihan.charAt(0));
+                Validation.validasiInput(0, (int) num2, pilihan.charAt(0));
 
                 // Validasi pembagian
-                Validation.validasiPembagi((int) num2, pilihan.charAt(0));
+                Validation.validasiPembagi(num2, pilihan.charAt(0));
 
                 // Hitung hasil
                 double hasil = Calculate.calculate(pilihan.charAt(0), num1, num2);
