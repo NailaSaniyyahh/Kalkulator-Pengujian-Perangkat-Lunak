@@ -10,7 +10,7 @@ public class Validation {
         }
     }
 
-    public static void validasiInput(double num1, double num2, char pilihan){
+    public static void validasiInput(double num1, double num2){
         if (num1 < -32768 || num1 > 32767){
             throw new IllegalArgumentException("Error: Bilangan Pertama tidak berada pada rentang.");
         }
