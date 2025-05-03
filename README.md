@@ -11,7 +11,7 @@ Aplikasi Kalkulator Sederhana merupakan sebuah program kalkulator yang memungkin
 * **Repository Management** : Git
 * **IDE** : Visual Studio Code
 * **CLI** : Command Prompt (CMD) / Powershell (Windows)
-* **Build Tools** : [![Gradle](https://img.shields.io/badge/Gradle-8.7-blue)](https://gradle.org/)
+* **Build Tools** : [![Gradle](https://img.shields.io/badge/Gradle-8.13-blue)](https://gradle.org/)
   Kami menggunakan Tools Gradle untuk mengelola proyek Java kami secara lebih efisien. 
   Versi Gradle yang kelompok kami gunakan adalah 8.13. 
   Untuk informasi lebih lanjut -> [Kunjungi situs Gradle](https://gradle.org/).
