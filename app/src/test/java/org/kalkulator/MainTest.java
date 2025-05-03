@@ -3,7 +3,169 @@
  */
 package org.kalkulator;
 
-public class MainTest {
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.util.Scanner;
 
+class MainTest {
+
+    // Test Case 1: Menguji input valid dan perhitungan tunggal 
+    @Test
+    void testValidInputSingle() {
+        String input = "1";  
+        double num1 = 1.5;
+        double num2 = 3.0;
+
+        double expectedResult = 4.5;
+
+        double result = Calculate.calculate(input.charAt(0), num1, num2);
+        
+        // Verifikasi apakah hasilnya sesuai dengan ekspektasi
+        assertEquals(expectedResult, result, "Hasil penjumlahan harus 4.5");
+    }
+
+    // Test Case 2: Menguji input valid dan perhitungan lebih dari 1 kali
+    @Test
+    void testValidInputMultipleCalculations() {
+        String input = "1";  
+        double num1 = 20.0;
+        double num2 = 10.0;       
+
+        double expectedResult = 30.0;
+
+        double result = Calculate.calculate(input.charAt(0), num1, num2);
+        
+        // Verifikasi hasil pertama
+        assertEquals(expectedResult, result, "Hasil penjumlahan pertama harus 30.0");
+
+        input = "2"; 
+        num1 = 70.0;
+        num2 = 50.0;
+
+        expectedResult = 20.0;
+
+        result = Calculate.calculate(input.charAt(0), num1, num2);
+        
+        // Verifikasi hasil kedua
+        assertEquals(expectedResult, result, "Hasil pengurangan kedua harus 20.0");
+    }
+
+    // Test Case 3: Menguji input operator yang tidak valid
+    @Test
+    void testMainInvalidOperator() {
+        String input = "8";  
+        
+        IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
+            Validation.validasiOperator(input.charAt(0));
+        });
+        
+        // Verifikasi pesan kesalahan
+        assertEquals("Error: operator tidak valid", thrown.getMessage());
+    }
+
+    // Test Case 4: Menguji input bilangan pertama yang tidak sesuai rentang
+    @Test
+    void testMainInvalidFirstNumber() {
+        double num1 = 984374;  
+        
+        IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
+            Validation.validasiInput(num1, 0);
+        });
+        
+        // Verifikasi pesan kesalahan
+        assertEquals("Error: Bilangan Pertama tidak berada pada rentang.", thrown.getMessage());
+    }    
+
+    // Test Case 5: Menguji input bilangan kedua yang tidak sesuai rentang
+    @Test
+    void testMainInvalidSecondNumber() {
+        double num1 = 5.0;
+        double num2 = 3402937;  
+        
+        IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
+            Validation.validasiInput(num1, num2);
+        });
+        
+        // Verifikasi pesan kesalahan
+        assertEquals("Error: Bilangan Kedua tidak berada pada rentang.", thrown.getMessage());
+    }
+    
+    // Test Case 6: Menguji input bilangan kedua adalah nol pada operasi pembagian
+    @Test
+    void testMainDivisionByZero() {
+        String input = "4";  
+        double num2 = 0.0;  
+        
+        IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
+            Validation.validasiPembagi(num2, input.charAt(0));
+        });
+        
+        // Verifikasi pesan kesalahan
+        assertEquals("Error: pembagi tidak boleh nol", thrown.getMessage());
+    }
+
+    // Test Case 7: Uji coba menampilkan pilihan menu operasi aritmatika
+    @Test
+    void testShowMenu() {
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(outputStream);
+
+        System.setOut(printStream);
+
+        Main.showMenu();
+
+        String expectedMenu = "======================================\n" +
+                              "Pilih operasi yang ingin Anda lakukan:\n" +
+                              "1. Penjumlahan (+)\n" +
+                              "2. Pengurangan (-)\n" +
+                              "3. Perkalian (*)\n" +
+                              "4. Pembagian (/)\n" +
+                              "======================================";
+        String actualOutput = outputStream.toString().replaceAll("\r\n", "\n").trim();
+        assertEquals(expectedMenu, actualOutput);
+    }
+
+    // Test Case 8: Uji coba untuk mendapatkan pilihan operator dari pengguna
+    @Test
+    void testGetOperatorChoice() {
+        String simulatedInput = "1\n";
+        ByteArrayInputStream inputStream = new ByteArrayInputStream(simulatedInput.getBytes());
+        System.setIn(inputStream);
+
+        Scanner scanner = new Scanner(System.in);
+
+        String expectedChoice = "1";
+        assertEquals(expectedChoice, Main.getOperatorChoice(scanner));  
+
+    }
+    
+    // Test Case 9: Uji coba untuk mendapatkan input bilangan dari pengguna
+    @Test
+    void testGetValidNumber() {
+        String simulatedInput = "-5\n"; 
+        ByteArrayInputStream inputStream = new ByteArrayInputStream(simulatedInput.getBytes());
+        System.setIn(inputStream);
+
+        Scanner scanner = new Scanner(System.in);
+
+        double expectedNumber = -5;
+        assertEquals(expectedNumber, Main.getValidNumber(scanner));  // Mengharapkan -5
+    }
+
+    // Test Case 10: Uji coba mendapatkan respon untuk perhitungan ulang
+    @Test
+    void testAskForContinue() {
+        String simulatedInput = "y\n";
+        ByteArrayInputStream inputStream = new ByteArrayInputStream(simulatedInput.getBytes());
+        System.setIn(inputStream);
+
+        Scanner scanner = new Scanner(System.in);
+
+        boolean expectedResponse = true; 
+        assertEquals(expectedResponse, Main.askForContinue(scanner));  
+    }
+    
 }
-

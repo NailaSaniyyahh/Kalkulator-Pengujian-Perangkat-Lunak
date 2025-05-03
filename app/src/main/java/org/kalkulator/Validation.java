@@ -2,11 +2,11 @@ package org.kalkulator;
 
 public class Validation {
 
-    public static double validasiInputAngka(String input, String numBerapa) {
+    public static double validasiInputAngka(String input) {
         try {
             return Double.parseDouble(input);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("Error: " + numBerapa + " bukan angka.");
+            throw new IllegalArgumentException("Error: Input bukan angka.");
         }
     }
 
