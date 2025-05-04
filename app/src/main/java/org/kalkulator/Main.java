@@ -46,7 +46,7 @@ public class Main {
         scanner.close();
     }
 
-    private static void showMenu() {
+    public static void showMenu() {
         System.out.println("======================================");
         System.out.println("Pilih operasi yang ingin Anda lakukan:");
         System.out.println("1. Penjumlahan (+)");
@@ -56,12 +56,12 @@ public class Main {
         System.out.println("======================================");
     }
 
-    private static String getOperatorChoice(Scanner scanner) {
+    public static String getOperatorChoice(Scanner scanner) {
         System.out.print("Masukkan pilihan Anda (1/2/3/4): ");
         return scanner.nextLine();
     }
 
-    private static double getValidNumber(Scanner scanner) {
+    public static double getValidNumber(Scanner scanner) {
         double num;
         System.out.print("Masukkan bilangan dengan rentang -32768 s.d. 32767: ");
         String input = scanner.nextLine();
@@ -69,7 +69,7 @@ public class Main {
         return num;
     }
 
-    private static boolean askForContinue(Scanner scanner) {
+    public static boolean askForContinue(Scanner scanner) {
         System.out.print("Apakah Anda ingin melakukan perhitungan lagi? (y/n): ");
         String jawaban = scanner.nextLine();
         return jawaban.equalsIgnoreCase("y");

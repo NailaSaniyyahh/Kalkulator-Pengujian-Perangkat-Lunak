@@ -38,4 +38,3 @@ application {
 tasks.test {
     useJUnitPlatform()  // Gunakan JUnit 5 platform untuk unit testing
 }
-
