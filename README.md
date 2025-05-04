@@ -32,7 +32,7 @@ Program kalkulator sederhana kelompok kami diujikan secara metode per-method den
 
 | No. | Nama Class          | Nama Method         | Jumlah Test Case |
 | --- | ------------------- | ------------------- | ---------------- |
-| 1   | Main                | main                | 7                |
+| 1   | Main                | main                | 6                |
 |     |                     | showMenu            | 1                |
 |     |                     | getOperatorChoice   | 1                |
 |     |                     | getValidNumber      | 1                |
@@ -78,8 +78,9 @@ git push
 ```
 
 ### Script For Run Program
+Pastikan anda berada dalam direktori src/main/java
 ```
-gradle run
+java org.kalkulator.Main 
 ```
 ### Script For Testing Program   
 Junit
@@ -98,14 +99,37 @@ Program kalkulator kami diujikan menggunakan tools Gradle & JUnit untuk memastik
 
 Adapun Hasil dari pengujian sebagai berikut:
 
-  - Jumlah Total Tests: 
-  - Successful: 
-  - Success Rate : 
-  - Failures : 
-  - Ignored : 
-  - Total Duration :
+  - Jumlah Total Tests: 22
+  - Successful: 22
+  - Success Rate : 100%
+  - Failures : 0
+  - Ignored : 0
+  - Total Duration : 0.101s
+
+  ![alt text](image.png)
+
+Berdasarkan keterangan dari gambar diatas, dapat disimpulkan bahwa dari 22 tests (pengujian) yang tersedia :
+
+  - 6 Tests dari Class CalculateTest
+  - 10 Test dari Class MainTest
+  - 6 Test dari Class ValidationTest
+
+menghasilkan hasil pengujian dimana seluruhnya dapat dijalankan secara PASSED dibuktikan dengan keterangan pada success rate 100% pada setiap Class. Rincian pengujian pada setiap Class ditunjukkan pada gambar berikut :
+
+![alt text](image-1.png)
+
+![alt text](image-2.png)
+
+![alt text](image-3.png)
+
+Adapun keterangan tambahan lainnya yaitu :
+
+ - Total duration yang dihasilkan adalah 0.038s dengan rincian pada Class CalculateTest 0.050s, MainTest 0.036s dan Class ValidationTest 0.015s	.
+ - 0 Failures menunjukkan bahwa tidak ada test script (unit test) yang menghasilkan hasil pengujian berupa FAIL
+ - 0 Ignored menunjukkan bahwa tidak ada test script (unit test) yang terlewat atau dihiraukan.
 
 ## Dependencies Used
+
 Kami menambahkan beberapa dependency yang digunakan untuk menunjang kebutuhan program kami untuk dapat dijalankan dengan baik, Dependency tersebut antara lain : 
 1. *testImplementation* : 'org.junit.jupiter:junit-jupiter:5.9.1'
     - Digunakan untuk melakukan pengujian (testing) dalam project kami. Dengan dependency ini kami dapat menuliskan unit test apa saja yang ingin diujikan menggunakan fitur-fitur yang disediakan oleh JUnit Jupiter
